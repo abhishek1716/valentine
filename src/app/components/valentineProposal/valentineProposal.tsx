@@ -68,14 +68,36 @@ const ValentineProposal = () => {
     return noMessages[Math.min(noCount, noMessages.length - 1)];
   };
 
-  const handleNoHover = () => {
+  const handleInteraction = () => {
     setIsMoving(true);
     setNoCount((prev) => prev + 1);
+
+    // Get viewport dimensions
+    const viewportWidth = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    const viewportHeight = Math.max(
+      document.documentElement.clientHeight || 0,
+      window.innerHeight || 0
+    );
+
+    // Calculate new random position with padding from edges
+    const padding = 60; // Pixels from the edge
+    const newX = Math.random() * (viewportWidth - 2 * padding) + padding;
+    const newY = Math.random() * (viewportHeight - 2 * padding) + padding;
+
+    // Update button position
+    const button = document.querySelector(".no-button");
+    if (button) {
+      button.style.left = `${newX}px`;
+      button.style.top = `${newY}px`;
+    }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-pink-50">
-      {/* Main content container with relative positioning */}
+      {/* Main content container */}
       <div className="relative w-full flex flex-col items-center p-8">
         {/* Image */}
         <div className="mb-8">
@@ -109,19 +131,22 @@ const ValentineProposal = () => {
 
             {/* No button */}
             <button
-              className={`${
+              className={`no-button ${
                 isMoving ? "fixed" : ""
-              } bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 gap-2 text-2xl`}
+              } bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 gap-2 text-2xl touch-none`}
               style={
                 isMoving
                   ? {
-                      left: `${Math.random() * 80 + 10}%`,
-                      top: `${Math.random() * 80 + 10}vh`,
                       transform: "translate(-50%, -50%)",
+                      zIndex: 50,
                     }
                   : {}
               }
-              onMouseEnter={handleNoHover}
+              onMouseEnter={handleInteraction}
+              onTouchStart={(e) => {
+                e.preventDefault();
+                handleInteraction();
+              }}
             >
               {getNoButtonText()}
             </button>
