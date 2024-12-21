@@ -88,7 +88,7 @@ const ValentineProposal = () => {
     const newY = Math.random() * (viewportHeight - 2 * padding) + padding;
 
     // Update button position
-    const button = document.querySelector(".no-button");
+    const button = document.querySelector(".no-button") as HTMLElement;
     if (button) {
       button.style.left = `${newX}px`;
       button.style.top = `${newY}px`;
