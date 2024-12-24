@@ -155,7 +155,9 @@ const WishlistApp: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <GiftIcon className="w-6 h-6" />
-              <CardTitle className="text-2xl">Secret Santa Wishlist</CardTitle>
+              <CardTitle className="text-2xl">
+                Your Custom-Made Forever Secret Personal Santa
+              </CardTitle>
             </div>
             <Button
               variant="outline"
