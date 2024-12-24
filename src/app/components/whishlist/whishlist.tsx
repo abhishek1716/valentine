@@ -154,7 +154,7 @@ const WishlistApp: React.FC = () => {
         <CardHeader className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <GiftIcon className="w-6 h-6" />
+              <GiftIcon className="w-20 h-20" />
               <CardTitle className="text-2xl">
                 Your Custom-Made Forever Secret Personal Santa
               </CardTitle>
