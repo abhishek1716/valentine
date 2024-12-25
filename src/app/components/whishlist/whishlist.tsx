@@ -68,30 +68,36 @@ const WishlistApp: React.FC = () => {
   useEffect(() => {
     if (listId) {
       setIsLoading(true);
-      const wishlistRef = collection(db, "wishlists", listId, "items");
-      const q = query(wishlistRef, orderBy("timestamp", "desc"));
+      try {
+        const wishlistRef = collection(db, "wishlists", listId, "items");
+        const q = query(wishlistRef, orderBy("timestamp", "desc"));
 
-      const unsubscribe = onSnapshot(
-        q,
-        (snapshot) => {
-          const itemsArray = snapshot.docs.map(
-            (doc) =>
-              ({
-                id: doc.id,
-                ...doc.data(),
-              } as WishlistItem)
-          );
-          setItems(itemsArray);
-          setIsLoading(false);
-        },
-        (err) => {
-          console.error("Error fetching wishlist:", err);
-          setError("Failed to load wishlist items");
-          setIsLoading(false);
-        }
-      );
+        const unsubscribe = onSnapshot(
+          q,
+          (snapshot) => {
+            const itemsArray = snapshot.docs.map(
+              (doc) =>
+                ({
+                  id: doc.id,
+                  ...doc.data(),
+                } as WishlistItem)
+            );
+            setItems(itemsArray);
+            setIsLoading(false);
+          },
+          (err) => {
+            console.error("Error fetching wishlist:", err);
+            setError("Failed to load wishlist items");
+            setIsLoading(false);
+          }
+        );
 
-      return () => unsubscribe();
+        return () => unsubscribe();
+      } catch (error) {
+        console.error("Error setting up listener:", error);
+        setError("Failed to connect to database");
+        setIsLoading(false);
+      }
     }
   }, [listId]);
 
