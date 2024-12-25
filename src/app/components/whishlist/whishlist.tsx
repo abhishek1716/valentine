@@ -23,12 +23,12 @@ import { Input } from "../ui/input";
 
 const firebaseConfig = {
   // Add your Firebase config here
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  apiKey: "AIzaSyDfndCLnxJIuMwMXeuH_rz4MZe-BHE25M0",
+  authDomain: "valentine-23c4b.firebaseapp.com",
+  projectId: "valentine-23c4b",
+  storageBucket: "valentine-23c4b.firebasestorage.app",
+  messagingSenderId: "662248363475",
+  appId: "1:662248363475:web:c463f6123a429ecbd24b26",
 };
 
 // Initialize Firebase
