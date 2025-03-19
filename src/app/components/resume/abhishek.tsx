@@ -749,7 +749,7 @@ export default function AbhishekResume() {
                 <h3 className="font-semibold text-blue-800 mb-2">
                   Modern JavaScript for the Impatient
                 </h3>
-                <p className="text-sm text-gray-600">O'Reilly</p>
+                <p className="text-sm text-gray-600">O&apos;Reilly</p>
               </motion.div>
             </div>
           </motion.section>
