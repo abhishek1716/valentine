@@ -25,7 +25,7 @@ export default function ModelV1Component() {
 
   // Auto slide functionality
   useEffect(() => {
-    let slideInterval: any;
+    let slideInterval: ReturnType<typeof setInterval>;
 
     if (isPlaying && slideType === "autoplay") {
       slideInterval = setInterval(() => {

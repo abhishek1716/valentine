@@ -5,7 +5,6 @@ import styles from "./AprilFoolsPrank.module.css";
 
 const AprilFoolsButton = () => {
   const [clickCount, setClickCount] = useState<number>(0);
-  const [rotation, setRotation] = useState<number>(0);
   const [isExploded, setIsExploded] = useState<boolean>(false);
   const [buttonPosition, setButtonPosition] = useState<{
     x: number;
@@ -30,7 +29,7 @@ const AprilFoolsButton = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const screamAudioRef = useRef<HTMLAudioElement>(null);
   const explosionAudioRef = useRef<HTMLAudioElement>(null);
-
+  console.log(realButtonFound);
   // Event handler for button click
   const handleButtonClick = () => {
     const newClickCount = clickCount + 1;
@@ -346,7 +345,7 @@ const AprilFoolsButton = () => {
             position: clickCount >= 16 ? "absolute" : "relative",
           }}
         >
-          DON'T PRESS THIS
+          DON&apos;T PRESS THIS
         </button>
       )}
 
@@ -370,7 +369,7 @@ const AprilFoolsButton = () => {
               }}
               onClick={() => handleMultipleButtonClick(btn.isReal)}
             >
-              DON'T PRESS THIS
+              DON&apos;T PRESS THIS
             </button>
           ))}
         </div>
@@ -424,7 +423,7 @@ const AprilFoolsButton = () => {
               className={styles.errorButton}
               onClick={() => setShowSystemError(false)}
             >
-              Cancel (won't work)
+              Cancel (won&apos;t work)
             </div>
           </div>
         </div>
@@ -438,7 +437,9 @@ const AprilFoolsButton = () => {
             <p className={styles.hackText}>$ accessing_user_data...</p>
             <p className={styles.hackText}>$ downloading_browser_history...</p>
             <p className={styles.hackText}>$ stealing_passwords...</p>
-            <p className={styles.hackText}>$ YOU'RE HACKED! APRIL FOOLS!</p>
+            <p className={styles.hackText}>
+              $ YOU&apos;RE HACKED! APRIL FOOLS!
+            </p>
           </div>
         </div>
       )}
